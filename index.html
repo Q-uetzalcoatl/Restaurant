@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body { 
+            background-image: url('bg.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .jumbotron {
+            background: linear-gradient(to right, #ffd700, #ff8c00);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .table td.table-occupied, 
+        .table td.order-served {
+            background-color: #ff6961; 
+        } 
+        .table td.table-not-occupied, 
+        .table td.order-ongoing {
+            background-color: #77dd77; 
+        } 
+        .table td.order-not-served {
+            background-color: #ffff99; 
+        }
+        .table {
+            background-color: #ffffff;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            overflow-y: scroll; /* Add scroll for vertical overflow */
+            max-height: 400px; /* Set a maximum height to enable scrolling */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h2>Restaurant Tables</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="table-wrapper">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Table Number</th>
+                            <th>Occupied</th>
+                            <th>Customer</th>
+                            <th>Food Order</th>
+                            <th>Price</th>
+                            <th>Order Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>1</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>John</td>
+                        <td>Beef Taco</td>
+                        <td>$18</td>
+                        <td class="order-not-served">Not Served</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Sarah</td>
+                        <td>Cheeseburger with Fries</td>
+                        <td>$15</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Mary</td>
+                        <td>Grilled Chicken Caesar Salad</td>
+                        <td>$19</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Jessica</td>
+                        <td>Vegetable Pad Thai</td>
+                        <td>$13</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Michael</td>
+                        <td>Grilled Salmon with Steamed Vegetables</td>
+                        <td>$20</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="table-not-occupied">Not Occupied</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td> 
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Jennifer</td>
+                        <td>Chicken Alfredo Pasta</td>
+                        <td>$18</td>
+                        <td class="order-not-served">Not Served</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Daniel</td>
+                        <td>Fish and Chips</td>
+                        <td>$15</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td class="table-not-occupied">Not Occupied</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Christopher</td>
+                        <td>Margherita Pizza</td>
+                        <td>$12</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td class="table-not-occupied">Not Occupied</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>David</td>
+                        <td>Chicken Parmesan with Garlic Bread</td>
+                        <td>$20</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Ramon</td>
+                        <td>Veggie Burger with Sweet Potato Fries</td>
+                        <td>$25</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Amanda</td>
+                        <td>Steak Sandwich with Onion Rings</td>
+                        <td>$25</td>
+                        <td class="order-not-served">Not Served</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Tyler</td>
+                        <td>Vegetable Curry</td>
+                        <td>$12</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td class="table-not-occupied">Not Occupied</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Megan</td>
+                        <td>Sushi Platter</td>
+                        <td>$30</td>
+                        <td class="order-not-served">Not Served</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>William</td>
+                        <td>Seafood Paella</td>
+                        <td>$35</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Nathaniel</td>
+                        <td>Greek Salad with Grilled Chicken</td>
+                        <td>$22</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td class="table-not-occupied">Not Occupied</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="table-wrapper">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Table Number</th>
+                            <th>Occupied</th>
+                            <th>Customer</th>
+                            <th>Food Order</th>
+                            <th>Price</th>
+                            <th>Order Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>21</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Nicole</td>
+                        <td>Chicken Tikka Masala</td>
+                        <td>$30</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Benjamin</td>
+                        <td>Caesar Salad</td>
+                        <td>$15</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Andrew</td>
+                        <td>Hawaiian Pizza</td>
+                        <td>$19</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Lauren</td>
+                        <td>Lobster Roll</td>
+                        <td>$33</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Alexander</td>
+                        <td>Pancit Canton</td>
+                        <td>$20</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Olivia</td>
+                        <td>Lechon Kawali</td>
+                        <td>$25</td>
+                        <td class="order-ongoing">Ongoing</td> 
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Ethan</td>
+                        <td>Kare-Kare</td>
+                        <td>$20</td>
+                        <td class="order-not-served">Not Served</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Christina</td>
+                        <td>Sinigang</td>
+                        <td>$15</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td class="table-not-occupied">Not Occupied</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Joshua</td>
+                        <td>Adobo</td>
+                        <td>$22</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td class="table-not-occupied">Not Occupied</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Victoria</td>
+                        <td>Ginataang Gulay</td>
+                        <td>$20</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Jonathan</td>
+                        <td>Caldereta</td>
+                        <td>$25</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Danielle</td>
+                        <td>Pakbet</td>
+                        <td>$15</td>
+                        <td class="order-not-served">Not Served</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Matthew</td>
+                        <td>Bistek Tagalog</td>
+                        <td>$23</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Nicholas</td>
+                        <td>Sisig</td>
+                        <td>$30</td>
+                        <td class="order-ongoing">Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Stephanie</td>
+                        <td>Chicken Inasal</td>
+                        <td>$35</td>
+                        <td class="order-not-served">Not Served</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Emily</td>
+                        <td>Dinuguan</td>
+                        <td>$15</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Christopher</td>
+                        <td>Bulalo</td>
+                        <td>$25</td>
+                        <td class="order-served">Served</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td class="table-occupied">Occupied</td>
+                        <td>Quetzalcoatl</td>
+                        <td>Grilled Dragon Meat</td>
+                        <td>$100</td>
+                        <td class="order-not-served">Not Served</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+    </div>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
